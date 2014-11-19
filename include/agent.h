@@ -89,7 +89,7 @@ struct Agent {
 
 // removed from agent struct for performance reasons
 struct AgentState {
-	bool dead;
+	BOOL dead;
 	enum State state;
 };
 
@@ -97,7 +97,7 @@ struct AgentAge {
 	REAL ageInHours; // might better to use INT
 	REAL hoursInState;
 
-	bool isFemale;
+	BOOL isFemale;
 	REAL cumulativeSporogonicDevelopment;
 };
 

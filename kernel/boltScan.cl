@@ -55,7 +55,7 @@ __kernel void perBlockScanByKey(
         if (locId >= offset )
         {
             UINT key2 = ldsKeys[ locId - offset];
-            if( ( key == key2 )  )
+            if( key == key2  )
             {
                 INT y = ldsVals[ locId - offset ];
                 sum = ( sum + y );
@@ -124,7 +124,7 @@ __kernel void intraBlockInclusiveScanByKey(
             if (mapId+offset<vecSize )
             {
                 INT y = preSumArray[ mapId+offset ];
-                if ( (key == prevKey ) )
+                if ( key == prevKey )
                 {
                     workSum = ( workSum + y );
                 }
@@ -153,7 +153,7 @@ __kernel void intraBlockInclusiveScanByKey(
                 INT y = ldsVals[ locId - offset ];
                 UINT key1 = ldsKeys[ locId ];
                 UINT key2 = ldsKeys[ locId-offset ];
-                if ( ( key1 == key2 ) )
+                if ( key1 == key2 )
                 {
                     scanSum = ( scanSum + y );
                 }
@@ -177,7 +177,7 @@ __kernel void intraBlockInclusiveScanByKey(
             INT y = postSumArray[ mapId+offset ];
             UINT key1 = keySumArray[ mapId+offset ]; // change me
             UINT key2 = ldsKeys[ locId-1 ];
-            if ( ( key1 == key2 ) )
+            if ( key1 == key2 )
             {
                 INT y2 = ldsVals[locId-1];
                 y = ( y + y2 );

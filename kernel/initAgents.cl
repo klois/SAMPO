@@ -42,6 +42,7 @@ __kernel void initAgents(__global struct Agent* agents, __global struct AgentAge
 	agentAge.hoursInState = 0.0f;
 
 	agentAge.isFemale = HybridTaus(&seeds[3]) <= 0.5; //TODO random;
+	agentAge.cumulativeSporogonicDevelopment = 0.0f;
 	agentAges[id] = agentAge;
 
 	struct Agent agent;

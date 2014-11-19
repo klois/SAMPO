@@ -7,6 +7,7 @@
 #define REAL float
 #define INT int
 #define UINT uint
+#define BOOL bool
 
 // only for eclipse/VS for syntax highlighting and to avoid warnings
 #ifndef __OPENCL_VERSION__

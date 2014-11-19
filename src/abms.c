@@ -10,7 +10,7 @@
 #include "abms.h"
 #include "scan.h"
 
-#define FACTOR 320
+#define FACTOR 320 
 
 REAL hoursInTimeStep = 1.0f;
 long long maxSteps = 8760;
@@ -401,7 +401,7 @@ void createNewAgents(icl_buffer* agents, icl_buffer* agentAges, icl_buffer* agen
 	icl_start_timer(scanTimer);
 #endif
 
-#if DEVICE_TYPE == ICL_GPU
+#if DEVICE_TYPE != ICL_CPU
 #define PARALLEL_SCAN
 //	printf("host   b1 %d, b3 %d, end %d\n", popH->eggs.end, popH->immatures.end, popH->bmDigestings.end);
 	parallelPrefixScan(agentStates, popD, prefixSum1, buff, preScan,
@@ -653,6 +653,14 @@ int main (int argc, char **argv)
 		icl_buffer* agentAges = icl_create_buffer(dev, CL_MEM_READ_WRITE, maxAgents * sizeof(struct AgentAge));
 		icl_buffer* agentStates = icl_create_buffer(dev, CL_MEM_READ_WRITE, maxAgents * sizeof(struct AgentState));
 
+		icl_write_buffer(enbD, CL_TRUE, sizeof(struct EggsNbiomass), &enbH, NULL, NULL);
+
+		struct BitesNcycles bncH;
+		bncH.numCyclesReported = 0;
+		bncH.sumCyclesReported = 0;
+		bncH.numBitesReported = 0;
+		bncH.numInfectBitesReported = 0;
+		icl_write_buffer(bnc, CL_TRUE, sizeof(struct BitesNcycles), &bncH, NULL, NULL);
 		icl_write_buffer(enbD, CL_TRUE, sizeof(struct EggsNbiomass), &enbH, NULL, NULL);
 
 		if(readSingleValFile(temperaturePath, &temperature) < 0)

@@ -3,8 +3,6 @@
  * @date		07/01/2013
  */
 
-#pragma OPENCL EXTENSION cl_amd_printf : enable
-
 #include "device_types.h"
 #include "agent.h"
 

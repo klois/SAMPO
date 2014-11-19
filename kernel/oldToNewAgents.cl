@@ -128,7 +128,7 @@ for(INT i = 0; i < environment->newEggs; ++i)
 		UINT newIdx = offset.eggs.end + prefixSum1[gid];
 		newAgents[newIdx] = oldAgents[gid];
 		newAgentAges[newIdx] = oldAgentAges[gid];
-		newAgentStates[newIdx] = oldAgentStates[gid];
+		newAgentStates[newIdx] = agentState;
 		return;
 	}
 
@@ -142,7 +142,7 @@ for(INT i = 0; i < environment->newEggs; ++i)
 		UINT newIdx = offset.larvae.start + prefixSum2[gid];
 		newAgents[newIdx] = oldAgents[gid];
 		newAgentAges[newIdx] = oldAgentAges[gid];
-		newAgentStates[newIdx] = oldAgentStates[gid];
+		newAgentStates[newIdx] = agentState;
 		return;
 	}
 
@@ -156,7 +156,7 @@ for(INT i = 0; i < environment->newEggs; ++i)
 		UINT newIdx = offset.pupae.start + prefixSum3[gid-pop.larvae.start];
 		newAgents[newIdx] = oldAgents[gid];
 		newAgentAges[newIdx] = oldAgentAges[gid];
-		newAgentStates[newIdx] = oldAgentStates[gid];
+		newAgentStates[newIdx] = agentState;
 		return;
 	}
 
@@ -169,7 +169,7 @@ for(INT i = 0; i < environment->newEggs; ++i)
 		UINT newIdx = offset.immatures.start + prefixSum1[gid];
 		newAgents[newIdx] = oldAgents[gid];
 		newAgentAges[newIdx] = oldAgentAges[gid];
-		newAgentStates[newIdx] = oldAgentStates[gid];
+		newAgentStates[newIdx] = agentState;
 		return;
 	}
 
@@ -183,7 +183,7 @@ for(INT i = 0; i < environment->newEggs; ++i)
 		UINT newIdx = offset.mateSeekings.start + prefixSum2[gid];
 		newAgents[newIdx] = oldAgents[gid];
 		newAgentAges[newIdx] = oldAgentAges[gid];
-		newAgentStates[newIdx] = oldAgentStates[gid];
+		newAgentStates[newIdx] = agentState;
 		return;
 	}
 
@@ -196,7 +196,7 @@ for(INT i = 0; i < environment->newEggs; ++i)
 		UINT newIdx = offset.bmSeekings.start + prefixSum3[gid-pop.larvae.start];
 		newAgents[newIdx] = oldAgents[gid];
 		newAgentAges[newIdx] = oldAgentAges[gid];
-		newAgentStates[newIdx] = oldAgentStates[gid];
+		newAgentStates[newIdx] = agentState;
 		return;
 	}
 
@@ -209,7 +209,7 @@ for(INT i = 0; i < environment->newEggs; ++i)
 		UINT newIdx = offset.bmDigestings.start + prefixSum1[gid];
 		newAgents[newIdx] = oldAgents[gid];
 		newAgentAges[newIdx] = oldAgentAges[gid];
-		newAgentStates[newIdx] = oldAgentStates[gid];
+		newAgentStates[newIdx] = agentState;
 		return;
 	}
 
@@ -222,7 +222,7 @@ for(INT i = 0; i < environment->newEggs; ++i)
 		UINT newIdx = offset.gravids.start + prefixSum2[gid];
 		newAgents[newIdx] = oldAgents[gid];
 		newAgentAges[newIdx] = oldAgentAges[gid];
-		newAgentStates[newIdx] = oldAgentStates[gid];
+		newAgentStates[newIdx] = agentState;
 	}
 
 }

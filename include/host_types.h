@@ -9,3 +9,4 @@
 #define REAL cl_float
 #define INT cl_int
 #define UINT cl_uint
+#define BOOL cl_bool
